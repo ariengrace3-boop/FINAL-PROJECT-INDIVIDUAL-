@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Online Survey Form</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+ --blue: #0077B6;
+ --light-bg: #CAF0F8;
+ --white: #ffffff;
+ --border: #90e0ef;
+ --shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+body {
+ font-family: 'Poppins', sans-serif;
+ background: var(--light-bg);
+}
+
+/* HEADER */
+header {
+ background: var(--blue);
+ text-align: center;
+ padding: 20px;
+}
+
+header h1 {
+ color: white;
+ font-size: 1.8rem;
+}
+
+/* LAYOUT */
+.main-wrapper {
+ max-width: 900px;
+ margin: 30px auto;
+ padding: 0 15px;
+ display: flex;
+ flex-direction: column;
+ gap: 25px;
+}
+
+/* CARD */
+.top-card {
+ background: white;
+ border-radius: 18px;
+ border: 3px dashed #48cae4;
+ outline: 5px solid #ade8f4;
+ box-shadow: var(--shadow);
+ display: flex;
+ overflow: hidden;
+}
+
+/* FORM */
+.form-section {
+ flex: 1;
+ padding: 25px;
+ border-right: 1px solid var(--border);
+}
+
+.field-group {
+ margin-bottom: 15px;
+}
+
+label {
+ font-size: 0.85rem;
+ font-weight: 600;
+ display: block;
+ margin-bottom: 5px;
+}
+
+input, select, textarea {
+ width: 100%;
+ padding: 8px 10px;
+ border: 2px solid var(--border);
+ border-radius: 10px;
+ font-family: inherit;
+ font-size: 0.85rem;
+}
+
+/* BUTTON */
+#submit-btn {
+ width: 100%;
+ padding: 10px;
+ background: var(--blue);
+ color: white;
+ border: none;
+ border-radius: 10px;
+ font-weight: 600;
+ cursor: pointer;
+}
+
+#submit-btn:hover {
+ background: #023e8a;
+}
+
+/* RIGHT SIDE */
+.right-section {
+ flex: 1;
+ padding: 25px;
+ display: flex;
+ flex-direction: column;
+ gap: 20px;
+}
+
+/* 🔵 LIVE PREVIEW CARD */
+.preview-box, .summary-box {
+ background: #f0fbff;
+ border: 2px solid #ade8f4;
+ border-radius: 12px;
+ padding: 18px;
+}
+
+/* TITLES LIKE YOUR IMAGE */
+.preview-title, .summary-title {
+ text-align: center;
+ font-weight: 600;
+ font-size: 1rem;
+ margin-bottom: 12px;
+ color: #0077B6;
+}
+
+/* TEXT STYLE */
+.preview-box p,
+.summary-box p {
+ margin-bottom: 6px;
+ font-size: 0.9rem;
+}
+
+.preview-box span,
+.summary-box span {
+ font-weight: 600;
+ color: #023e8a;
+}
+
+/* RESPONSES */
+.responses-section {
+ background: white;
+ padding: 20px;
+ border-radius: 18px;
+ border: 3px dotted #48cae4;
+ box-shadow: var(--shadow);
+}
+
+.responses-section h2 {
+ text-align: center;
+ margin-bottom: 10px;
+ font-size: 1rem;
+ color: var(--blue);
+}
+
+/* TABLE */
+table {
+ width: 100%;
+ border-collapse: collapse;
+ font-size: 0.85rem;
+}
+
+thead tr {
+ background: var(--blue);
+ color: white;
+}
+
+th, td {
+ padding: 8px 12px;
+ text-align: left;
+}
+
+tbody tr {
+ border-bottom: 1px solid #ddd;
+}
+
+#no-responses {
+ text-align: center;
+ color: gray;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Online Survey Form</h1>
+</header>
+
+<div class="main-wrapper">
+
+<!-- FORM + PREVIEW -->
+<div class="top-card">
+
+<div class="form-section">
+
+<div class="field-group">
+<label>Name</label>
+<input id="name" type="text">
+</div>
+
+<div class="field-group">
+<label>Email</label>
+<input id="email" type="email">
+</div>
+
+<div class="field-group">
+<label>Rating</label>
+<select id="rating">
+  <option value="">Select a rating</option>
+  <option value="1">1 - Poor</option>
+  <option value="2">2 - Fair</option>
+  <option value="3">3 - Good</option>
+  <option value="4">4 - Very Good</option>
+  <option value="5">5 - Excellent</option>
+</select>
+</div>
+
+<div class="field-group">
+<label>Feedback</label>
+<textarea id="feedback"></textarea>
+</div>
+
+<button id="submit-btn">Submit</button>
+
+</div>
+
+<!-- RIGHT SIDE -->
+<div class="right-section">
+
+<!-- LIVE PREVIEW (MATCH YOUR IMAGE) -->
+<div class="preview-box">
+<div class="preview-title">Live Preview</div>
+
+<p><b>Name:</b> <span id="preview-name">N/A</span></p>
+<p><b>Email:</b> <span id="preview-email">N/A</span></p>
+<p><b>Rating:</b> <span id="preview-rating">N/A</span></p>
+<p><b>Feedback:</b> <span id="preview-feedback">N/A</span></p>
+</div>
+
+<!-- SUMMARY -->
+<div class="summary-box">
+<div class="summary-title">Summary</div>
+
+<p>Total Responses: <span id="total-responses">0</span></p>
+<p>Average Rating: <span id="avg-rating">N/A</span></p>
+</div>
+
+</div>
+
+</div>
+
+<!-- RESPONSES -->
+<div class="responses-section">
+<h2>Responses</h2>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Rating</th>
+<th>Feedback</th>
+</tr>
+</thead>
+
+<tbody id="responses-body">
+<tr>
+<td colspan="4" id="no-responses">No responses yet</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<script>
+// INPUTS
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const ratingInput = document.getElementById('rating');
+const feedbackInput = document.getElementById('feedback');
+
+// PREVIEW
+const previewName = document.getElementById('preview-name');
+const previewEmail = document.getElementById('preview-email');
+const previewRating = document.getElementById('preview-rating');
+const previewFeedback = document.getElementById('preview-feedback');
+
+// SUMMARY
+const totalEl = document.getElementById('total-responses');
+const avgEl = document.getElementById('avg-rating');
+const tableBody = document.getElementById('responses-body');
+
+let responses = [];
+
+// LIVE PREVIEW
+function updatePreview() {
+ previewName.textContent = nameInput.value || 'N/A';
+ previewEmail.textContent = emailInput.value || 'N/A';
+ previewRating.textContent = ratingInput.value || 'N/A';
+ previewFeedback.textContent = feedbackInput.value || 'N/A';
+}
+
+nameInput.oninput = updatePreview;
+emailInput.oninput = updatePreview;
+ratingInput.onchange = updatePreview;
+feedbackInput.oninput = updatePreview;
+
+// SUBMIT
+document.getElementById('submit-btn').addEventListener('click', function () {
+
+ if (!nameInput.value || !emailInput.value || !ratingInput.value || !feedbackInput.value) {
+   alert("Please fill all fields");
+   return;
+ }
+
+ const entry = {
+   name: nameInput.value,
+   email: emailInput.value,
+   rating: Number(ratingInput.value),
+   feedback: feedbackInput.value
+ };
+
+ responses.push(entry);
+
+ const empty = document.getElementById('no-responses');
+ if (empty) empty.parentElement.remove();
+
+ const row = document.createElement('tr');
+ row.innerHTML = `
+   <td>${entry.name}</td>
+   <td>${entry.email}</td>
+   <td>${entry.rating}</td>
+   <td>${entry.feedback}</td>
+ `;
+ tableBody.appendChild(row);
+
+ // SUMMARY UPDATE
+ totalEl.textContent = responses.length;
+
+ let sum = responses.reduce((a, b) => a + b.rating, 0);
+ avgEl.textContent = (sum / responses.length).toFixed(2);
+
+ // RESET
+ nameInput.value = "";
+ emailInput.value = "";
+ ratingInput.value = "";
+ feedbackInput.value = "";
+
+ updatePreview();
+});
+</script>
+
+</body>
+</html>
