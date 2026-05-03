@@ -44,6 +44,7 @@ header h1 {
  display: flex;
  overflow: hidden;
 }
+
 /* FORM */
 .form-section {
  flex: 1;
@@ -67,6 +68,7 @@ input, select, textarea {
  font-family: inherit;
  font-size: 0.85rem;
 }
+
 /* BUTTON */
 #submit-btn {
  width: 100%;
@@ -89,6 +91,7 @@ input, select, textarea {
  flex-direction: column;
  gap: 20px;
 }
+
 /* PREVIEW & SUMMARY CARDS */
 .preview-box, .summary-box {
  background: #f0fbff;
@@ -127,6 +130,7 @@ input, select, textarea {
  font-size: 1rem;
  color: var(--blue);
 }
+
 /* TABLE */
 table {
  width: 100%;
