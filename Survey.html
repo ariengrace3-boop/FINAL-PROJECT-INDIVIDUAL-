@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Online Survey Form</title>
-<link rel="stylesheet" href="style.css" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+     <title>Online Survey Form</title>
+     <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+  <body>
 <header>
-<h1>Online Survey Form</h1>
+ <h1>Online Survey Form</h1>
 </header>
 <div class="main-wrapper">
+  
 <!-- FORM + PREVIEW -->
 <div class="top-card">
 <div class="form-section">
 <div class="field-group">
-<label>Name</label>
-<input id="name" type="text">
+        <label>Name</label>
+        <input id="name" type="text">
 </div>
 <div class="field-group">
 <label>Email</label>
@@ -25,7 +26,7 @@
 <div class="field-group">
 <label>Rating</label>
 <select id="rating">
-<option value="">Select a rating</option>
+                 <option value="">Select a rating</option>
 <option value="1">1 - Poor</option>
 <option value="2">2 - Fair</option>
 <option value="3">3 - Good</option>
@@ -33,12 +34,15 @@
 <option value="5">5 - Excellent</option>
 </select>
 </div>
+  
 <div class="field-group">
 <label>Feedback</label>
 <textarea id="feedback"></textarea>
 </div>
+  
 <button id="submit-btn" type="button">Submit</button>
 </div>
+  
 <!-- RIGHT SIDE -->
 <div class="right-section">
 <!-- LIVE PREVIEW -->
@@ -49,6 +53,7 @@
 <p><b>Rating:</b> <span id="preview-rating">N/A</span></p>
 <p><b>Feedback:</b> <span id="preview-feedback">N/A</span></p>
 </div>
+  
 <!-- SUMMARY -->
 <div class="summary-box">
 <div class="summary-title">Summary</div>
@@ -57,16 +62,17 @@
 </div>
 </div>
 </div>
+  
 <!-- RESPONSES -->
 <div class="responses-section">
 <h2>Responses</h2>
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Email</th>
-<th>Rating</th>
-<th>Feedback</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Rating</th>
+      <th>Feedback</th>
 </tr>
 </thead>
 <tbody id="responses-body">
