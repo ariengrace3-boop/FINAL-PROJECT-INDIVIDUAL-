@@ -32,7 +32,7 @@ feedbackInput.addEventListener('input', updatePreview);
 
 // SUBMIT
 document.getElementById('submit-btn').addEventListener('click', function (e) {
-  e.preventDefault(); // ✅ IMPORTANT
+  e.preventDefault(); 
 
   if (!nameInput.value || !emailInput.value || !ratingInput.value || !feedbackInput.value) {
     alert("Please fill all fields");
